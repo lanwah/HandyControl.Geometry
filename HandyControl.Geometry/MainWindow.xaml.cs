@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Geometry.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,27 @@ namespace HandyControl.Geometry
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-           //var keys= this.Resources.Keys;
+            //var keys= this.Resources.Keys;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var geometryName = string.Empty;
+            if ((e?.OriginalSource is Button btn) && (btn.Content is string text))
+            {
+                geometryName = text;
+            }
+            if (string.IsNullOrEmpty(geometryName))
+            {
+                return;
+            }
+
+            // 设置剪贴板
+            Clipboard.SetText(geometryName);
+            // 通知用户
+            //MessageBox.Show("已复制到剪贴板");
+
+            HandyControl.Controls.Growl.Info(Properties.Resources.GrowlInfo, "");
         }
     }
 }

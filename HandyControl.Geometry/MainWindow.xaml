@@ -16,6 +16,7 @@
                                      IsDesignTimeCreatable=True}"
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
     Loaded="MainWindow_Loaded"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <!--<vm:GeometryList x:Key="DesignGeometryList">
@@ -37,7 +38,10 @@
     </Window.Resources>
     <Grid>
         <!--<Button hc:IconElement.Geometry="{StaticResource InfoGeometry}" Style="{StaticResource ButtonPrimary}" />-->
-        <ItemsControl d:ItemsSource="{Binding Source={StaticResource DesignGeometryList}}" ItemsSource="{Binding GeometryList}">
+        <ItemsControl
+            d:ItemsSource="{Binding Source={StaticResource DesignGeometryList}}"
+            ButtonBase.Click="Button_Click"
+            ItemsSource="{Binding GeometryList}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="5" />

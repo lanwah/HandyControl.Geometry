@@ -1,4 +1,5 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,8 @@ namespace HandyControl.Geometry.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        public const string Token = "GrowlDemoPanel";
+
         private GeometryList _geometryList;
         public GeometryList GeometryList
         {
@@ -33,6 +36,11 @@ namespace HandyControl.Geometry.ViewModel
             }
         }
 
+        public RelayCommand<string> CopyNameCommand
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -50,6 +58,12 @@ namespace HandyControl.Geometry.ViewModel
             ///
             this.GeometryList = new GeometryList();
             //this.GeometryList.LoadGeometry();
+            this.CopyNameCommand = new RelayCommand<string>(CopyToClipboard);
+        }
+
+        private void CopyToClipboard(string name)
+        {
+            MessageBox.Show(name);
         }
     }
 
