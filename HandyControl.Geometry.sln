@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControl.Geometry", "HandyControl.Geometry\HandyControl.Geometry.csproj", "{9B60CE73-22D9-4B77-9D98-C72487269A04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B60CE73-22D9-4B77-9D98-C72487269A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B60CE73-22D9-4B77-9D98-C72487269A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B60CE73-22D9-4B77-9D98-C72487269A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B60CE73-22D9-4B77-9D98-C72487269A04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CC476EC-4F8C-4ACD-A1A3-A76A7249ECF9}
+	EndGlobalSection
+EndGlobal

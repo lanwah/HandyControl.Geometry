@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="HandyControl.Geometry.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:HandyControl.Geometry"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:HandyControl.Geometry.ViewModel"
+    Title="HandyControl.GeometryIcon"
+    Width="1024"
+    Height="768"
+    MinWidth="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Width, Mode=OneTime}"
+    MinHeight="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Height, Mode=OneTime}"
+    d:DataContext="{d:DesignInstance vm:MainViewModel,
+                                     IsDesignTimeCreatable=True}"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    Loaded="MainWindow_Loaded"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <!--<vm:GeometryList x:Key="DesignGeometryList">
+            <vm:GeometryInfo Name="CalendarGeometry" />
+            <vm:GeometryInfo Name="DeleteGeometry" />
+            <vm:GeometryInfo Name="DeleteFillCircleGeometry" />
+            <vm:GeometryInfo Name="CloseGeometry" />
+        </vm:GeometryList>-->
+
+        <!--<vm:GeometryList x:Key="GeometryListObject" />
+        <ObjectDataProvider x:Key="DesignGeometryList" ObjectInstance="{StaticResource GeometryListObject}" />-->
+
+        <ObjectDataProvider x:Key="DesignGeometryList" ObjectType="{x:Type vm:GeometryList}" />
+
+        <!--<ObjectDataProvider
+            x:Key="DesignGeometryList"
+            MethodName="GetProperties"
+            ObjectInstance="{x:Type Colors}" />-->
+    </Window.Resources>
+    <Grid>
+        <!--<Button hc:IconElement.Geometry="{StaticResource InfoGeometry}" Style="{StaticResource ButtonPrimary}" />-->
+        <ItemsControl d:ItemsSource="{Binding Source={StaticResource DesignGeometryList}}" ItemsSource="{Binding GeometryList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="5" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <!--<Button hc:IconElement.Geometry="{Binding .}" Style="{StaticResource ButtonPrimary}" />-->
+
+                    <Button
+                        MinWidth="180"
+                        hc:IconElement.Geometry="{Binding Geometry}"
+                        Content="{Binding Name}"
+                        Style="{StaticResource ButtonPrimary}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
